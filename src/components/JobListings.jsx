@@ -7,6 +7,7 @@ import Spinner from './Spinner';
 const JobListings = ({ isHome = false }) => {
 
   // const jobListings = isHome?Jobs.slice(0,3):Jobs;
+  const apiUrl = isHome?'http://localhost:8000/jobs?_limit=3':'http://localhost:8000/jobs'
 
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +16,7 @@ const JobListings = ({ isHome = false }) => {
 
     const fetchJobs = async () => {
       try {
-        const res = await fetch('http://localhost:8000/jobs')
+        const res = await fetch(apiUrl)
         const data = await res.json();
         setJobs(data);
       } catch (error) {
