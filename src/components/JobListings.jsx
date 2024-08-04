@@ -13,7 +13,8 @@ const JobListings = ({ isHome = false }) => {
 
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
+  //we use useeffect so that we get the data when the page load.
   useEffect(() => {
 
     const fetchJobs = async () => {
