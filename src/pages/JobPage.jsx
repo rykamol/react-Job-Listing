@@ -5,6 +5,7 @@ import { FaArrowLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { FaMapMarker } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 
 const JobPage = ({ deleteJob }) => {
@@ -17,6 +18,8 @@ const JobPage = ({ deleteJob }) => {
     if (!confirm) return;
 
     deleteJob(jobid);
+
+    toast.success('Job Deleted successfully!')
 
     nevigate('/jobs');
   }
